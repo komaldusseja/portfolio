@@ -1,0 +1,390 @@
+{
+  "_meta": {
+    "project": "Komal Dusseja — Portfolio",
+    "version": "1.0.0",
+    "purpose": "Design system definition. Lock visual language before building. No UI code lives here.",
+    "tone": "A senior creative's brain made visible. Thinking-in-progress. Copy is as important as visuals. Not corporate, not polished portfolio."
+  },
+
+  "colors": {
+    "palette": {
+      "ink-black":    "#001219",
+      "wheat":        "#e9d8a6",
+      "golden":       "#ee9b00",
+      "aqua":         "#94d2bd",
+      "dark-teal":    "#005f73",
+      "dark-cyan":    "#0a9396",
+      "caramel":      "#ca6702",
+      "rusty":        "#bb3e03"
+    },
+
+    "roles": {
+      "background":         "ink-black — used everywhere, no exceptions. No white, no off-white, no light surfaces.",
+      "surface-card":       "dark-teal (#005f73) — primary card/tile background. Creates depth against ink-black.",
+      "surface-card-alt":   "dark-cyan (#0a9396) — secondary card variant. Use to differentiate adjacent tiles.",
+      "surface-raised":     "dark-teal at 60% opacity — for modals, overlays, or elevated panels.",
+      "text-primary":       "wheat (#e9d8a6) — all body copy, headings, labels. Never pure white.",
+      "text-secondary":     "wheat at 55% opacity — captions, metadata, timestamps, helper text.",
+      "text-muted":         "wheat at 30% opacity — placeholder text, disabled states, decorative numbers.",
+      "accent-primary":     "golden (#ee9b00) — CTAs, active states, key emphasis words in headlines, hover underlines, stat numbers.",
+      "accent-secondary":   "aqua (#94d2bd) — secondary links, tag chips, toggle-on state, subtle highlights.",
+      "accent-danger":      "caramel (#ca6702) — use sparingly: error states, 'unhinged' filter tag active state.",
+      "accent-deep":        "rusty (#bb3e03) — use very sparingly: destructive actions only, never decorative."
+    },
+
+    "usage_rules": {
+      "hover_links": "Underline animates in golden (#ee9b00). Text color stays wheat — do NOT change text color on hover.",
+      "hover_cards": "Card border or left-edge accent reveals in golden. Background shifts from dark-teal to dark-cyan. No scale transforms that break layout.",
+      "active_nav": "Golden underline, 2px, below nav item. Text stays wheat.",
+      "cta_buttons": "Background: golden. Text: ink-black. Hover: background shifts to aqua, text stays ink-black. Border-radius: 100px (pill).",
+      "ghost_buttons": "Border: wheat at 40%. Text: wheat. Hover: border becomes golden, text becomes golden.",
+      "filter_tags": "Default: border wheat 30%, text wheat 55%. Active-all: golden border + golden text. Active-smart: aqua border + aqua text. Active-unhinged: caramel border + caramel text.",
+      "project_tile_numbers": "wheat at 20% opacity — purely decorative, never interactive.",
+      "stat_callouts": "golden for the number, aqua for the unit or label.",
+      "messy_thinking_block": "Background: dark-teal. Border: dashed, aqua at 40%. Text: wheat at 70%. Font: Skribblugh.",
+      "cursor_thought_bubble": "Background: dark-teal. Border: aqua at 50%. Text: aqua. Font: Skribblugh.",
+      "greeting_banner": "Background: golden. Text: ink-black. Font: Skribblugh.",
+      "contact_strip": "Background: dark-teal. Heading: wheat. CTA: ghost button style.",
+      "easter_egg_tooltip": "Background: golden. Text: ink-black. Font: Skribblugh.",
+      "scroll_reveal_line": "golden, 1px, animates width from 0 to 100% on reveal."
+    },
+
+    "contrast_rules": {
+      "wheat_on_ink-black":   "WCAG AA pass — primary text pairing, always safe.",
+      "golden_on_ink-black":  "WCAG AA pass — accent on background, safe for large text and UI elements.",
+      "aqua_on_ink-black":    "WCAG AA pass — secondary accent on background, safe.",
+      "ink-black_on_golden":  "WCAG AA pass — use for button text on golden backgrounds.",
+      "wheat_on_dark-teal":   "WCAG AA pass — card body text, safe.",
+      "golden_on_dark-teal":  "WCAG AA pass — accent on card, safe.",
+      "caramel_on_ink-black": "WCAG AA borderline — use only for large text (18px+) or non-critical UI.",
+      "rusty_on_ink-black":   "WCAG AA fail — never use for text. Decorative/icon use only at large sizes."
+    },
+
+    "do_not_use": [
+      "No white (#ffffff) or near-white surfaces anywhere.",
+      "No light grey backgrounds — the entire site lives in the dark palette.",
+      "rusty (#bb3e03) is never used for body text or interactive labels.",
+      "caramel (#ca6702) is never used for small text (below 18px).",
+      "Do not mix golden and aqua as adjacent text colors — they compete. Use one per section.",
+      "Do not use dark-teal or dark-cyan as text color — they are surface colors only.",
+      "No color gradients between palette colors — flat surfaces only.",
+      "No opacity tricks on golden that make it look brown — if it reads muddy, use aqua instead."
+    ]
+  },
+
+  "typography": {
+    "fonts": {
+      "kenoky": {
+        "role": "Display / Headings / Navigation logo",
+        "weights": ["Regular (400)", "Bold (700)"],
+        "load_note": "Self-hosted or via Fontshare if available. Fallback: Georgia, serif.",
+        "character": "Architectural, editorial. Carries authority without shouting."
+      },
+      "satoshi": {
+        "role": "Body copy / UI labels / Navigation links / Captions",
+        "weights": ["Light (300)", "Regular (400)", "Medium (500)", "Bold (700)"],
+        "load_note": "Via Fontshare API: https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap",
+        "character": "Clean, modern, readable at small sizes. The workhorse."
+      },
+      "skribblugh": {
+        "role": "Cursor thought bubbles / Messy thinking blocks / Handwritten annotations / Easter eggs / Greeting banner",
+        "weights": ["Regular (400)"],
+        "load_note": "Self-hosted. Fallback: 'Caveat', cursive.",
+        "character": "Feels like a real person's handwriting. Signals 'this is the unfiltered brain'. Use sparingly — every instance should feel intentional."
+      }
+    },
+
+    "scale": {
+      "display-xl": {
+        "size": "clamp(64px, 10vw, 120px)",
+        "line-height": "0.92",
+        "letter-spacing": "-3px",
+        "font": "Kenoky",
+        "weight": "700",
+        "use": "Hero headline on landing page only."
+      },
+      "display-lg": {
+        "size": "clamp(48px, 7vw, 88px)",
+        "line-height": "0.95",
+        "letter-spacing": "-2px",
+        "font": "Kenoky",
+        "weight": "700",
+        "use": "Project page headlines, About page headline."
+      },
+      "display-md": {
+        "size": "clamp(32px, 4.5vw, 56px)",
+        "line-height": "1.05",
+        "letter-spacing": "-1.5px",
+        "font": "Kenoky",
+        "weight": "400",
+        "use": "Section titles, contact strip headline."
+      },
+      "heading-lg": {
+        "size": "clamp(22px, 2.5vw, 32px)",
+        "line-height": "1.2",
+        "letter-spacing": "-0.5px",
+        "font": "Kenoky",
+        "weight": "700",
+        "use": "Tile names on project grid, sidebar stat labels."
+      },
+      "heading-sm": {
+        "size": "18px",
+        "line-height": "1.3",
+        "letter-spacing": "-0.3px",
+        "font": "Kenoky",
+        "weight": "400",
+        "use": "Social section titles, card sub-headings."
+      },
+      "body-lg": {
+        "size": "17px",
+        "line-height": "1.85",
+        "letter-spacing": "0",
+        "font": "Satoshi",
+        "weight": "400",
+        "use": "Project writeup paragraphs. The main reading experience."
+      },
+      "body-md": {
+        "size": "15px",
+        "line-height": "1.7",
+        "letter-spacing": "0",
+        "font": "Satoshi",
+        "weight": "400",
+        "use": "About page body, meta descriptions, secondary copy."
+      },
+      "body-sm": {
+        "size": "13px",
+        "line-height": "1.6",
+        "letter-spacing": "0",
+        "font": "Satoshi",
+        "weight": "400",
+        "use": "Tile micro-copy, captions, sidebar captions."
+      },
+      "label": {
+        "size": "11px",
+        "line-height": "1.4",
+        "letter-spacing": "0.12em",
+        "font": "Satoshi",
+        "weight": "500",
+        "transform": "uppercase",
+        "use": "Category tags, metadata labels, 'What I did' headers, filter buttons."
+      },
+      "nav": {
+        "size": "13px",
+        "line-height": "1",
+        "letter-spacing": "0.08em",
+        "font": "Satoshi",
+        "weight": "500",
+        "transform": "uppercase",
+        "use": "Navigation links."
+      },
+      "nav-logo": {
+        "size": "20px",
+        "line-height": "1",
+        "letter-spacing": "-0.5px",
+        "font": "Kenoky",
+        "weight": "700",
+        "use": "KD. logotype in nav."
+      },
+      "handwritten-lg": {
+        "size": "20px",
+        "line-height": "1.5",
+        "letter-spacing": "0",
+        "font": "Skribblugh",
+        "weight": "400",
+        "use": "Messy thinking blocks, sidebar insight quotes."
+      },
+      "handwritten-sm": {
+        "size": "14px",
+        "line-height": "1.4",
+        "letter-spacing": "0",
+        "font": "Skribblugh",
+        "weight": "400",
+        "use": "Cursor thought bubbles, easter egg tooltips, greeting banner."
+      },
+      "stat": {
+        "size": "clamp(28px, 4vw, 48px)",
+        "line-height": "1",
+        "letter-spacing": "-1px",
+        "font": "Kenoky",
+        "weight": "700",
+        "color": "golden",
+        "use": "Result numbers in project sidebars (+20%, 700+, etc.)."
+      }
+    },
+
+    "hierarchy_rules": {
+      "one_display_per_page": "Each page gets exactly one display-xl or display-lg headline. Never two.",
+      "em_for_emphasis": "Italic <em> inside Kenoky headlines uses golden color. One em per headline maximum.",
+      "no_bold_body": "Satoshi body copy is never bolded for emphasis — use a new sentence or restructure instead.",
+      "skribblugh_is_rare": "Skribblugh appears in at most 3 places per page. If it's everywhere, it means nothing.",
+      "labels_are_not_headings": "Label-scale text (11px uppercase) never replaces a heading. It introduces one.",
+      "line_length": "Body copy max-width: 65ch. Never let a paragraph span full viewport width.",
+      "italic_headlines": "Kenoky italic is a design choice, not a grammar choice. Use it for the word that carries the emotional weight of the headline.",
+      "copy_weight": "Copy is as important as layout. A weak headline is a broken component. Rewrite before restyling."
+    }
+  },
+
+  "spacing": {
+    "base_unit": "8px",
+    "scale": {
+      "xs":   "4px   (0.5×)",
+      "sm":   "8px   (1×)  — icon gaps, tight inline spacing",
+      "md":   "16px  (2×)  — component internal padding, small gaps",
+      "lg":   "24px  (3×)  — card padding, section element gaps",
+      "xl":   "40px  (5×)  — section horizontal padding, major gaps",
+      "2xl":  "64px  (8×)  — between major sections within a page",
+      "3xl":  "96px  (12×) — page top padding (below fixed nav)",
+      "4xl":  "128px (16×) — reserved for hero breathing room"
+    },
+    "layout": {
+      "page_horizontal_padding": "xl (40px) desktop, md (16px) mobile",
+      "nav_height":              "64px fixed",
+      "page_top_offset":         "3xl (96px) — clears fixed nav with breathing room",
+      "grid_gap":                "lg (24px) desktop, md (16px) mobile",
+      "section_gap":             "2xl (64px) between major page sections",
+      "card_padding":            "lg (24px)",
+      "card_border_radius":      "6px — subtle, not bubbly",
+      "button_padding":          "12px 28px",
+      "button_border_radius":    "100px (pill)"
+    }
+  },
+
+  "motion": {
+    "philosophy": "Motion reveals, it doesn't perform. Every animation should feel like the page is thinking, not showing off.",
+    "easing": {
+      "default":   "cubic-bezier(0.23, 1, 0.32, 1) — fast out, slow settle. The 'thinking' ease.",
+      "enter":     "cubic-bezier(0.0, 0.0, 0.2, 1)  — elements arriving with weight.",
+      "exit":      "cubic-bezier(0.4, 0.0, 1, 1)    — elements leaving quickly, not lingering."
+    },
+    "durations": {
+      "instant":   "80ms  — cursor tracking",
+      "fast":      "200ms — hover state changes (color, border)",
+      "medium":    "350ms — card hover transforms, button state",
+      "slow":      "600ms — scroll reveal, page transitions",
+      "very-slow": "900ms — staggered list reveals"
+    },
+    "scroll_reveal": {
+      "initial_state":  "opacity: 0, translateY: 28px",
+      "visible_state":  "opacity: 1, translateY: 0",
+      "duration":       "slow (600ms)",
+      "easing":         "default",
+      "stagger_step":   "80ms per child element",
+      "threshold":      "0.1 (10% visible triggers animation)"
+    },
+    "do_not": [
+      "No bounce or spring physics — this is a writer's portfolio, not a product demo.",
+      "No parallax scrolling — it fights the reading experience.",
+      "No auto-playing carousels.",
+      "No loading spinners — if something takes time, show a skeleton state in dark-teal."
+    ]
+  },
+
+  "components": {
+    "cursor": {
+      "dot": {
+        "size": "10px",
+        "color": "golden",
+        "blend_mode": "normal",
+        "note": "No multiply blend — it distorts on dark backgrounds."
+      },
+      "trail": {
+        "size": "32px",
+        "border": "1.5px solid aqua",
+        "opacity": "0.6",
+        "lag": "80ms"
+      },
+      "thought_bubble": {
+        "font": "Skribblugh, 13px",
+        "color": "aqua",
+        "background": "dark-teal",
+        "border": "1px solid aqua at 50%",
+        "trigger": "Mouse idle for 2000ms",
+        "dismiss": "On any mouse movement"
+      },
+      "hover_states": {
+        "on_link":         "dot grows to 16px, color shifts to aqua",
+        "on_project_tile": "dot grows to 20px, color stays golden",
+        "on_cta_button":   "dot shrinks to 6px, trail expands to 48px"
+      }
+    },
+
+    "navigation": {
+      "position": "fixed top, full width",
+      "background": "ink-black at 90% opacity + backdrop-filter: blur(12px)",
+      "border_bottom": "1px solid wheat at 8% — barely visible, just enough to separate",
+      "logo": "Kenoky, 20px, wheat. Hover: golden, no underline.",
+      "links": "Satoshi, 13px, uppercase, wheat at 80%. Hover: wheat 100% + golden underline animates in.",
+      "active_link": "golden underline, wheat text at 100%.",
+      "cta_link": "Treated as ghost button — border wheat 40%, hover border golden."
+    },
+
+    "project_tile": {
+      "background": "dark-teal",
+      "border": "1px solid wheat at 6% — barely there",
+      "border_radius": "6px",
+      "hover_background": "dark-cyan",
+      "hover_border": "1px solid golden at 40%",
+      "hover_transform": "scale(1.015) — subtle, not dramatic",
+      "number": "Kenoky italic, 11px, wheat at 20%",
+      "tag": "Satoshi, 10px, uppercase, wheat at 50%",
+      "name": "Kenoky, heading-lg scale, wheat",
+      "micro_copy": "Satoshi, 13px italic, wheat at 60%. Hidden by default, reveals on hover.",
+      "arrow": "golden circle, ink-black arrow icon. Hidden by default, scale(0.7) → scale(1) on hover."
+    },
+
+    "filter_buttons": {
+      "default": "border: 1.5px solid wheat at 30%, text: wheat at 60%, background: transparent",
+      "hover":   "border: wheat at 60%, text: wheat at 90%",
+      "active_all":      "border: golden, text: golden",
+      "active_smart":    "border: aqua, text: aqua",
+      "active_unhinged": "border: caramel, text: caramel",
+      "active_writing":  "border: wheat, text: wheat (full opacity)"
+    },
+
+    "messy_thinking_block": {
+      "background": "dark-teal",
+      "border": "1.5px dashed aqua at 40%",
+      "border_radius": "8px",
+      "padding": "lg (24px)",
+      "font": "Skribblugh, 17px",
+      "color": "wheat at 75%",
+      "toggle_off_color": "aqua",
+      "toggle_on_color": "golden",
+      "reveal_animation": "height 0 → auto, opacity 0 → 1, 350ms ease"
+    },
+
+    "project_sidebar_stat": {
+      "label": "Satoshi, 10px, uppercase, wheat at 50%",
+      "number": "Kenoky, stat scale, golden",
+      "caption": "Satoshi, 12px, wheat at 50%",
+      "spacing_between_stats": "2xl (32px)"
+    },
+
+    "contact_strip": {
+      "background": "dark-teal",
+      "heading_font": "Kenoky, display-md scale, wheat",
+      "heading_em_color": "golden",
+      "cta": "ghost button style — border wheat 40%, text wheat, hover: border golden, text golden"
+    },
+
+    "greeting_banner": {
+      "background": "golden",
+      "text_color": "ink-black",
+      "font": "Skribblugh, 15px",
+      "animation": "translateY(-100%) → translateY(0), 400ms ease",
+      "auto_dismiss": "5000ms"
+    }
+  },
+
+  "voice_and_copy_rules": {
+    "headline_formula": "Verb or tension first. Em on the emotional word. Max 6 words per line, 3 lines max.",
+    "micro_copy": "One sentence. Specific. Slightly self-aware. Never generic ('great work', 'amazing results').",
+    "messy_thinking": "Stream of consciousness. Arrows (→) between thoughts. Parenthetical asides. Ends with a realization, not a summary.",
+    "labels_and_tags": "Factual. No adjectives. 'Campaign · BookMyShow · 2022' not 'Award-winning Campaign'.",
+    "cta_copy": "Active, directional. 'Let's make something →' not 'Contact me'. Arrow is part of the copy.",
+    "stat_copy": "Number first, context second. '+20%' then 'Weekday bookings increase' — never the reverse.",
+    "skribblugh_copy": "Sounds like a real thought, not a designed thought. If it sounds like a tagline, rewrite it."
+  },
+
+  "do_not_build_yet": "This file defines the design system only. No pages, no components, no CSS. Lock this first."
+}

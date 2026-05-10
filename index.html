@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komal Dusseja — Writer at Large</title>
+<!-- Satoshi (body) via Fontshare -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+<!-- Kenoky (headings/nav) via cdnfonts -->
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<link href="https://fonts.cdnfonts.com/css/kenoky" rel="stylesheet">
+<!-- Skribblugh (cursor/thoughts) via cdnfonts -->
+<link href="https://fonts.cdnfonts.com/css/skribblugh" rel="stylesheet">
+<!-- Caveat fallback for Skribblugh -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<div id="cursor-thought"></div>
+
+<!-- Time-based greeting -->
+<div id="greeting-banner"></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('gallery'); return false;">KD.</a>
+  <ul class="nav-links">
+    <li data-page="gallery"><a href="#" onclick="showPage('gallery'); return false;">Work Work Work</a></li>
+    <li data-page="extra"><a href="#" onclick="showPage('extra'); return false;">More Work Work Work</a></li>
+    <li data-page="about"><a href="#" onclick="showPage('about'); return false;">Me</a></li>
+    <li><a href="#" class="nav-rabbit-hole" onclick="goRabbitHole(); return false;">The Rabbit Hole</a></li>
+    <li><a href="https://docs.google.com/document/d/1dzXdZxXmh70G40OJR3eTo5kEY3CAUSsbNvHHDCWi67g/edit?tab=t.0#heading=h.mcjqh4mduo5l" class="nav-resume-placeholder" target="_blank" rel="noopener noreferrer" style="pointer-events:auto; color:rgba(233,216,166,0.6);">Resume</a></li>
+    <li class="nav-icons">
+      <a href="https://www.linkedin.com/in/komal-dusseja/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://www.behance.net/komaldusseja" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a2 2 0 100-4H4v12h5.5a2.5 2.5 0 000-5H4"/><path d="M14.5 7h5M15 12h4.5a2.5 2.5 0 010 5H15V9.5A2.5 2.5 0 0117.5 7"/></svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     GALLERY / LANDING PAGE
+══════════════════════════════════════════ -->
+<div id="gallery-page" class="page active">
+  <section id="gallery">
+    <div class="gallery-header reveal">
+      <h1 class="gallery-title">Work<br>Work<br><em>Work</em></h1>
+      <p class="gallery-subtitle">Contrary to popular belief, working for India's biggest entertainment platform was not all play :(</p>
+    </div>
+
+    <div class="project-grid reveal reveal-delay-1">
+
+      <a href="#" class="project-tile tile-1" onclick="showProject('bestseller'); return false;" data-category="smart unhinged">
+        <video class="tile-bg-video" src="static/Website Content/BestSeller Seats/Hero Widget.mp4" muted playsinline preload="none" loop></video>
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">01</span>
+          <h2 class="tile-name">BestSeller Seats — Integrated Campaign</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-2" onclick="showProject('santa'); return false;" data-category="unhinged">
+        <video class="tile-bg-video" src="static/Website Content/The Santa - Doctor Surprise!.mp4" muted playsinline preload="none" loop></video>
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">02</span>
+          <h2 class="tile-name">Brand Love Campaign</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-3" onclick="showProject('bytescripts'); return false;" data-category="writing unhinged">
+        <video class="tile-bg-video" src="static/Website Content/Byte Scripts to Add/KHICHDI 2 Byte_5.mp4" muted playsinline preload="none" loop></video>
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">03</span>
+          <h2 class="tile-name">Movie Promos</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-4" onclick="showProject('stream'); return false;" data-category="smart writing">
+        <video class="tile-bg-video" src="static/Website Content/Stream Launch for Web/F Word- Stream Video.mp4" muted playsinline preload="none" loop></video>
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">04</span>
+          <h2 class="tile-name">Stream Launch</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-5" onclick="showProject('giftcards'); return false;" data-category="smart unhinged">
+        <img class="tile-bg-img" src="static/Website Content/Gift Cards (1)/You are my star.png" alt="Gift Cards" loading="lazy">
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">05</span>
+          <h2 class="tile-name">Gift Card Revamp</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-6" onclick="showProject('redlorry'); return false;" data-category="smart writing">
+        <video class="tile-bg-video" src="static/Website Content/Red Lorry Film Festival Case Study.mp4" muted playsinline preload="none" loop></video>
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">06</span>
+          <h2 class="tile-name">Red Lorry Film Festival</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-8" onclick="showPage('extra'); return false;">
+        <img class="tile-bg-img" src="static/Website Content/Queer Campaign/PRIDE-Post-05.jpg" alt="More work" loading="lazy">
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <span class="tile-number">+</span>
+          <h2 class="tile-name">More Work Work Work</h2>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile tile-extra" onclick="showPage('about'); return false;">
+        <img class="tile-bg-img" src="static/Website Content/Me.png" alt="About Komal" loading="lazy">
+        <div class="tile-hover-overlay"></div>
+        <div class="tile-arrow">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="tile-inner">
+          <h2 class="tile-name">About</h2>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-body">
+        <p class="footer-text">If your brand, web page, product, Instagram, studio, home, anything will thrive with this kinda Komal energy, please call — <a href="tel:+919881010419" class="footer-inline-link">+91 9881010419</a>, email at — <a href="mailto:komaldusseja@gmail.com" class="footer-inline-link">komaldusseja@gmail.com</a></p>
+        <nav class="footer-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/komal-dusseja/" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.behance.net/komaldusseja" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a2 2 0 100-4H4v12h5.5a2.5 2.5 0 000-5H4"/><path d="M14.5 7h5M15 12h4.5a2.5 2.5 0 010 5H15V9.5A2.5 2.5 0 0117.5 7"/></svg>
+          </a>
+          <span class="footer-divider">·</span>
+          <a href="https://docs.google.com/document/d/1dzXdZxXmh70G40OJR3eTo5kEY3CAUSsbNvHHDCWi67g/edit?tab=t.0#heading=h.mcjqh4mduo5l" class="footer-link" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+        </nav>
+      </div>
+    </footer>
+
+  </section>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: BESTSELLER SEATS
+══════════════════════════════════════════ -->
+<div id="bestseller-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">Campaign · Award-winning · 2025</span>
+  </div>
+
+  <!-- 1. HERO -->
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Seats that<br><em>sold</em><br>themselves.</h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Campaign Concept · Creative Direction · Integrated Execution</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('bestseller')">
+        <div class="toggle-track" id="toggle-bestseller">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-bestseller">
+        What's the one thing we can offer online that can't be offered offline? Hmmmm, selecting seats… but they can select offline… but the ticket counter guy will be pissed if one guy overthinks a seat… the customer has too many thoughts in their head… best view… na, comfort… wouldn't it be great if seats themselves announced their special-ness??! WHOA! Yeah, what if seats talk for themselves?! Stop it! Don't anthropomorphise the seats… But it'll look sooo good, the animation, imagine aisle seat running across… stop! Imagine… Let's see the data first! OMG. Data agrees. We're doing this. How to convince the CMO now… Will she agree on giving seats a personality?!
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. HERO MEDIA — Hero Widget video -->
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <video src="static/Website Content/BestSeller Seats/Hero Widget.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <!-- 3. WRITE-UP (no sidebar) -->
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>While people love watching movies any day of the week, they don't really book them online—on BookMyShow. Weekday sales remained stagnant, making urgency-based marketing ineffective.</p>
+      <p>So we tried solving the problem by looking at booking patterns, and found something simple—the seat people watch a movie from matters. A lot.</p>
+      <p>People have strong (and very personal) seat preferences depending on who they're going with, what they're watching, and the kind of experience they want. But when booking last-minute at the counter, they usually end up compromising.</p>
+      <p>So we solved our problem by solving theirs. By highlighting BestSeller Seats, a feature that helps people identify the most preferred seats. And why are they the most preferred seats? We let the seats do the talking!</p>
+      <p>From conceptualising the idea to leading its execution, I spearheaded the integrated campaign across platforms, increasing weekday bookings by 20%.</p>
+      <div class="project-ps">
+        <strong>'Whoa' moment:</strong> The ad is still running in the cinemas
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PN SLIDESHOW -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Push Notifications</h3>
+    <div class="auto-slideshow" id="bestseller-pn-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/BestSeller Seats/BestSeller Seats.png" alt="BestSeller Seats PN" loading="lazy">
+        <img src="static/Website Content/BestSeller Seats/BestSeller Seats _ 2.png" alt="BestSeller Seats PN 2" loading="lazy">
+        <img src="static/Website Content/BestSeller Seats/BestSeller Seats 3.png" alt="BestSeller Seats PN 3" loading="lazy">
+      </div>
+      <div class="auto-slideshow-dots" id="bestseller-pn-dots"></div>
+    </div>
+  </div>
+
+  <!-- 5. INSTAGRAM POSTS SLIDESHOW -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Instagram Posts</h3>
+    <div class="auto-slideshow" id="bestseller-insta-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/BestSeller Seats/Instagram Post/Insta.jpeg" alt="BestSeller Seats Instagram" loading="lazy">
+        <video src="static/Website Content/BestSeller Seats/Instagram Post/5.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+        <video src="static/Website Content/BestSeller Seats/Instagram Post/6.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+        <video src="static/Website Content/BestSeller Seats/Instagram Post/7.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+      </div>
+      <div class="auto-slideshow-dots" id="bestseller-insta-dots"></div>
+    </div>
+  </div>
+
+  <!-- 6. AWARDS -->
+  <div class="project-awards reveal">
+    <h3 class="section-title">Awards</h3>
+    <div class="awards-grid">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/1.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/2.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/3.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: BRAND LOVE CAMPAIGN
+══════════════════════════════════════════ -->
+<div id="santa-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">CSR · Film · BookMyShow · 2020</span>
+  </div>
+
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Brought a little<br><em>ho-ho-hope</em><br>to hospitals.</h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Campaign Concept · Film Narrative</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('santa')">
+        <div class="toggle-track" id="toggle-santa">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-santa">
+        Everyone's doing something for COVID, we should do something too… something nostalgic? Make them realise how good they had it with us… no! Everything is anyway gloomy… Don't, that'll be hitting the raw nerve… ugh, Christmas is around… can we do something around that? Someone said we can be elves who bring good news… but there's no good news… everything is super sensitive… hmmm… we can't be elves… but we can dress people who already are… what? Uhmm… the health workers… but they are more like Santa… granting wishes of saving/healing lives… great! That is it!!! We dress them up… uhmm, wait, but this is not BookMyShow… we are not some pharma/NGO brand… but we have a charity wing… ohh yeah!!!
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <video src="static/Website Content/The Santa - Doctor Surprise!.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>2020 wasn't exactly the year for Christmas cheer.</p>
+      <p>Hospitals were overwhelmed, and the people holding it all together barely had a moment to pause.</p>
+      <p>In those testing times, the BookMyShow creative team and I worked with the CSR wing to conceptualise #LoveBoostsHealth—a campaign where we sent Santa and elf-themed PPE kits to hospitals, to bring a little unexpected cheer to both healthcare providers and patients.</p>
+      <p>The campaign came alive through a 90-second film that travelled across YouTube, social media, and press—striking a chord at a time when optimism was in short supply.</p>
+    </div>
+    <div class="project-sidebar reveal reveal-delay-1">
+    </div>
+  </div>
+
+  <!-- Featured In -->
+  <div class="project-featured-in reveal">
+    <h3 class="section-title">Featured in</h3>
+    <div class="logo-grid">
+      <img src="static/Website Content/Coverage 2.png" alt="Press coverage logos" loading="lazy" style="max-height:200px; max-width:600px; width:100%; object-fit:contain; filter:brightness(0) invert(1); opacity:0.8;">
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: MOVIE PROMOS
+══════════════════════════════════════════ -->
+<div id="bytescripts-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">Scriptwriting · Film Campaigns</span>
+  </div>
+
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Channelled my<br>inner <em>screen-<br>writer.</em></h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Scriptwriting</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('byte')">
+        <div class="toggle-track" id="toggle-byte">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-byte">
+        Hmmm, another byte, with this cast, it'll be interesting… no… but… ugh, anyway, they are gonna read it off the teleprompter, let's write generic lines… nooo, let's not give up on our creativity… what if they act this time… nooo, they butchered the rap I wrote last time, so let's just go generic, no creativity… ugh, okay one safe, one creative, sending with fingers crossed!!
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <video src="static/Website Content/Byte Scripts to Add/KHICHDI 2 Byte_5.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>The most fun and occasionally the most despicable work I ever did (and loved doing) was writing promotional byte scripts for movies—a crucial part of every film campaign, driving early ticket sales, which the actors themselves performed.</p>
+      <p>Fun because <em>whoa, movie actors</em>; despicable because sometimes, they butchered the scripts.</p>
+      <p>But sooner rather than later, I did realise writing for actors is not just about the lines but more about how they make them their own.</p>
+    </div>
+  </div>
+
+  <div class="social-grid">
+    <h3 class="social-title">More Bytes</h3>
+    <div class="social-posts" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/Jawan Byte 2.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/Dream Girl 2 Byte.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/Bad Newzz Byte 2.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/BMCM Byte HD Cred (1).mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/RRKPK Byte 3.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/SSKTK BYTE Advance 26.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/JugJugg Jeeyo_ Varun Dhawan Kiara Advani Anil Kapoor Neetu Kapoor_ BookMyShow (1).mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="social-post" style="aspect-ratio:16/9; padding:0; overflow:hidden; border:none;">
+        <video src="static/Website Content/Byte Scripts to Add/Dunki_BookMyShow_CLEAN.mp4" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: STREAM LAUNCH
+══════════════════════════════════════════ -->
+<div id="stream-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">Brand Launch · Tone of Voice · BookMyShow Stream</span>
+  </div>
+
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Delivered a<br>pandemic <em>baby.</em></h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Tone of Voice · Launch Copy</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('stream')">
+        <div class="toggle-track" id="toggle-stream">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-stream">
+        Ahh, this can be the next Netflix… nice project to work on… but no, this model won't work in India, people are misers… but that's the brief, we oughta make it work… okay… let's see what Stream and BMS will have in common? Hmm, tickets, theatre-like feel, fdfs thrills, will it make it stand out? Let the marketers decide that; our copy is doing the job as per the brief!
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <video src="static/Website Content/Stream Launch for Web/F Word- Stream Video.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>The pandemic was brutal. We were all stuck in a non-stop scroll cycle, watching anything and everything, but nothing was quite like going to the movies.</p>
+      <p>That's when BookMyShow, India's biggest entertainment company, decided to launch Stream, bringing cinema to people's homes! Owing to years of rich consumer data and insights, they curated world cinema (700+ titles) for their cinema-loving audience across every demographic.</p>
+      <p>The only challenge now was to give Stream a distinctive tone of voice that could guide choice while still feeling like BookMyShow.</p>
+      <p>So that's what I did. Along with a team of freelance writers, I created the complete, end-to-end tone of voice—from the website to social media communications, I crafted all the launch messaging.</p>
+    </div>
+  </div>
+
+  <!-- Videos slideshow -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Campaign videos</h3>
+    <div class="auto-slideshow" id="stream-video-slideshow">
+      <div class="auto-slideshow-track">
+        <video src="static/Website Content/Stream Launch for Web/F Word- Stream Video.mp4" muted playsinline preload="metadata"></video>
+        <video src="static/Website Content/Stream Launch for Web/F Word 2- Stream Video.mp4" muted playsinline preload="metadata"></video>
+        <video src="static/Website Content/Stream Launch for Web/F Word 3- Stream Video.mp4" muted playsinline preload="metadata"></video>
+        <video src="static/Website Content/Stream Launch for Web/hard to decide.mp4" muted playsinline preload="metadata"></video>
+        <video src="static/Website Content/Stream Launch for Web/AQNEGwqh8VBO00zKl_JHeSBlzuZIlYkRlZwTbJmYMM0q_ys_z9yISuHHNDKG2nv1MEckpsg1lq5kqXXqJVbi9IOdRV_ExOuJTD9KXh4.mp4" muted playsinline preload="metadata"></video>
+        <video src="static/Website Content/Stream Launch for Web/AQOTrtHIquA3M-4GOd67u3muEHM1zAVhkdIEO5zjLXuDoox7ObYr12_JuhAY3gTkVEpSFcxhdcxZ-jgqQKQqZ8afQ24emr5U9IOkKkI.mp4" muted playsinline preload="metadata"></video>
+      </div>
+      <div class="auto-slideshow-dots" id="stream-video-dots"></div>
+    </div>
+  </div>
+
+  <!-- Images slideshow -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Campaign images</h3>
+    <div class="auto-slideshow" id="stream-img-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/Stream Launch for Web/stream-campaign-phase-1-01.jpg" alt="Stream campaign" loading="lazy">
+        <img src="static/Website Content/Stream Launch for Web/stream-campaign-phase-1-02.jpg" alt="Stream campaign" loading="lazy">
+        <img src="static/Website Content/Stream Launch for Web/stream-campaign-phase-1-08.jpg" alt="Stream campaign" loading="lazy">
+        <img src="static/Website Content/Stream Launch for Web/first-film-on-us.jpg" alt="First film on us" loading="lazy">
+        <img src="static/Website Content/Stream Launch for Web/stream-campaign-phase-2-14.jpg" alt="Stream campaign phase 2" loading="lazy">
+        <img src="static/Website Content/Stream Launch for Web/ChatGPT Image May 10, 2026, 08_27_31 AM.png" alt="Stream campaign" loading="lazy">
+        <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:rgba(233,216,166,0.3);background:var(--dark-teal);width:100%;aspect-ratio:16/9;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/></svg>
+          <span style="font-family:var(--font-handwritten);font-size:18px;">PNs — upload here</span>
+        </div>
+      </div>
+      <div class="auto-slideshow-dots" id="stream-img-dots"></div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: GIFT CARD REVAMP
+══════════════════════════════════════════ -->
+<div id="giftcards-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">Repositioning · Concept Direction · Thematic Development</span>
+  </div>
+
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Added some<br><em>rizz</em> to Gift<br>Cards.</h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Product Revamp · Concept Development</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('gift')">
+        <div class="toggle-track" id="toggle-gift">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-gift">
+        I wish there was a way to gift these amazing experiences… let's see if I can come up with such an idea… oh wait… there already is… there are gift cards… ohh god, they look like the cards a grandpa would gift to the grandson, and he would discard it thinking… just another coupon… need to make it BookMyShow-y
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <img src="static/Website Content/Gift Cards (1)/You are my star.png" alt="BookMyShow Gift Cards" loading="lazy">
+    </div>
+  </div>
+
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>The day I found out that BookMyShow sells gift cards (yes, you can gift someone a concert), I also realised how forgettable they looked.</p>
+      <p>So I took it upon myself to change that—spotting an opportunity to turn a passive product into an active gifting decision by making it more whimsical, personal, and flaunt-worthy.</p>
+      <p>By conceptualising themes for different celebratory (and non-celebratory) occasions, I made them more relevant—driving both usage and sales.</p>
+    </div>
+  </div>
+
+  <!-- Auto-moving slideshow of all 34 cards -->
+  <div class="project-slideshow reveal">
+    <div style="padding: 0 0 24px;">
+      <img src="static/Website Content/before&amp;after.png" alt="Before and after" loading="lazy" style="width:100%; max-height:300px; object-fit:contain; border-radius:6px;">
+    </div>
+    <h3 class="section-title">The cards</h3>
+    <div class="auto-slideshow" id="giftcards-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/Gift Cards (1)/0b848b71-8bf8-4f4d-92a2-a1471fb91c1e.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/1a231cbf-f273-4ebb-a6ce-6eb41c5ff33b.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/23584dc6-a7ab-48dc-ac4a-5d60083dc180.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/284cea42-1e2f-400d-8722-09e80980b687.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/359b635f-74de-4372-84f8-e328f583e047.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/35bb4eb0-ce3d-455a-b3bc-523b9833de5f.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/36ee4033-b24d-4766-a749-70e6c2720e36.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/4a8d248f-0523-4ff5-962f-656a434d1438.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/5d5c0a60-da4f-4ce4-8fc5-9e18266661dd.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/610d9324-02c7-451c-965e-ca8c751a24cc.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/73033828-df26-4546-b373-92283306ec5a.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/76ed7f50-eb28-4197-a5c4-08e10d9e688a.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/7eeb385c-cfd7-4947-b0c1-0996bb1cb2d8.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/8194c006-9dd1-4d5e-bcb4-9d7ff38bc7a1.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/8610caad-d8f7-449e-9a7b-d437eb68407b.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/8d9df506-2291-40e4-9574-29e2b4580ec0.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/90964e31-5cb9-4e68-92b7-59c4a8f2d8dd.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/956378cb-60e2-4536-b8a3-ae46cf1e5bcf.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/9c866431-20ca-4723-bf99-dadcec1db8b5.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/a25bd31d-ddca-4546-bf80-c557443ad720.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/b55098d7-f802-4cf8-ace8-ee7b2df42034.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/b862cbf0-2aa5-4719-86e2-797cc6a64a89.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/ba6a8ecb-6992-4a23-9c85-19ba0b31a4af.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/baca3174-d6e7-4048-ba9c-a3115830da52.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/c550c4ed-4b17-425c-b0b8-171691e73314.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/c6afb478-0625-40c0-ab60-a93671a29728.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/c7d671e6-7665-4adc-acb4-2b88dc4e5da0.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/ce076267-f367-4461-aa04-3e1de961aca1.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/cfe5bb38-337a-474f-8605-267304c689df.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/eeb38950-2504-4053-b38e-961eedf828ba.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/f1305a47-7f9a-43a4-a208-ea2a345f6089.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/f7b3e80f-8b86-4b0a-aef2-168277d9d87c.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/fa352efd-7d13-48dc-9f70-bff6eaa7c4ed.png" alt="Gift card" loading="lazy">
+        <img src="static/Website Content/Gift Cards (1)/You are my star.png" alt="Gift card" loading="lazy">
+      </div>
+      <div class="auto-slideshow-dots" id="giftcards-dots"></div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT: RED LORRY FILM FESTIVAL
+══════════════════════════════════════════ -->
+<div id="redlorry-page" class="page">
+  <div class="project-nav">
+    <button class="back-btn" onclick="showPage('gallery')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </button>
+    <span class="project-tag-line">Festival Branding · Copy · OOH · Red Lorry Film Festival</span>
+  </div>
+
+  <div class="project-hero">
+    <h1 class="project-headline reveal">Got rewarded<br>for my love<br>of <em>movies.</em></h1>
+    <div class="project-meta reveal reveal-delay-1">
+      <p class="project-meta-tag">What I did</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(233,216,166,0.75);">Central tagline · Merch copy · Website copy · OOH communications · Brand voice</p>
+      <br>
+      <div class="messy-toggle" onclick="toggleMessy('lorry')">
+        <div class="toggle-track" id="toggle-lorry">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Show messy thinking</span>
+      </div>
+      <div class="messy-content" id="messy-lorry">
+        Whoaaa, finally something that I can boast about in film festivals… ugh, but this is tasking… this festival won't take off in the first year… but it needs to have a consistent voice… and what should it say? Doesn't matter… the experience matters… but we need words to shape that experience… but how? people don't realise that anyway… still what can one expect a new festival to bring? Uhmmm, I guess festival + films = lots of memories? Yeah, that's a great start!
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-media reveal">
+    <div class="media-wrapper">
+      <video src="static/Website Content/Red Lorry Film Festival Case Study.mp4" controls muted playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <div class="project-writeup">
+    <div class="writeup-body reveal">
+      <p>Shaped the Red Lorry Film Festival's voice, translating the brief's heady mix of global cinema, cultural discussions, food, and fashion into a festival experience that's more memorable than the films themselves.</p>
+      <p>Meticulously crafted every detail, from the central tagline to merch copy, from website to OOH comms. 'A truckload of stories. An overload of emotions!' — set the tone for everything that followed.</p>
+      <p>Working on it wasn't just memorable—because memories fade. It was an indelible experience.</p>
+    </div>
+  </div>
+
+  <!-- Festival Voice slideshow -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Festival Voice</h3>
+    <div class="auto-slideshow" id="redlorry-festival-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/Red Lorry/image.png" alt="Red Lorry Festival" loading="lazy">
+        <img src="static/Website Content/Red Lorry/unnamed.jpg" alt="Red Lorry Festival" loading="lazy">
+        <img src="static/Website Content/Red Lorry/WhatsApp Image 2026-04-26 at 7.25.08 PM.jpeg" alt="Red Lorry Festival" loading="lazy">
+        <img src="static/Website Content/Red Lorry/WhatsApp Image 2026-04-26 at 7.27.48 PM.jpeg" alt="Red Lorry Festival" loading="lazy">
+        <img src="static/Website Content/Red Lorry/WhatsApp Image 2026-04-26 at 7.28.39 PM.jpeg" alt="Red Lorry Festival" loading="lazy">
+      </div>
+      <div class="auto-slideshow-dots" id="redlorry-festival-dots"></div>
+    </div>
+  </div>
+
+  <!-- Merch slideshow -->
+  <div class="project-slideshow reveal">
+    <h3 class="section-title">Merch</h3>
+    <div class="auto-slideshow" id="redlorry-merch-slideshow">
+      <div class="auto-slideshow-track">
+        <img src="static/Website Content/Red Lorry/Merch/142b086a-3912-4256-82a1-5f7b8aad01e0.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/1463cf93-2425-4b22-a5ca-d5e0f8a1f5e7.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/26a4050e-bb2c-4a3a-9629-c00a5ecefcf3.png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/79bc6e1d-561c-4671-9796-d272e218cfb1.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/af38a0dd-7e6b-4399-838c-8c55c25f30cb.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/b1f159cd-92a8-43d4-ac32-b14fcf9d8eff.png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/c1dc2250-87ae-4bf2-92bb-fbf51b041162.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/e1d6ca86-d8bd-4c1b-b7f0-8ce10fc1cd52.jpg" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/e52dd7a3-f25a-4521-811e-239e94fbd29e.png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/image (1).png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/image (2).png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/image (3).png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/image (4).png" alt="Red Lorry Merch" loading="lazy">
+        <img src="static/Website Content/Red Lorry/Merch/WhatsApp Image 2026-05-09 at 12.46.12 PM.jpeg" alt="Red Lorry Merch" loading="lazy">
+      </div>
+      <div class="auto-slideshow-dots" id="redlorry-merch-dots"></div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2>Like the thinking?<br><em>There's more.</em></h2>
+    <a href="#" class="contact-link" onclick="showPage('gallery'); return false;">See all work →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     EXTRA PROJECTS PAGE
+══════════════════════════════════════════ -->
+<div id="extra-page" class="page">
+  <div id="extra-page-content">
+    <div class="extra-header reveal" style="padding: 0 40px;">
+      <h1>More Work<br><em>Work Work</em></h1>
+    </div>
+
+    <div class="extra-projects" style="padding: 0 40px; margin-top: 0;">
+
+      <div class="extra-project-card reveal">
+        <p class="extra-card-num">— 01</p>
+        <h3 class="extra-card-name">Pride Month Campaign</h3>
+        <p class="extra-card-writeup">How does India's biggest entertainment company embrace the rainbow? That's how! A campaign very close to my heart, 'cos equal parts queer, equal parts cinema</p>
+        <div class="extra-slideshow" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; aspect-ratio:unset; background:transparent; border:none; padding:0; align-items:unset; justify-content:unset; flex-direction:unset;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-Post-05.jpg" alt="Pride Campaign" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-Post-06.jpg" alt="Pride Campaign" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-Post-07.jpg" alt="Pride Campaign" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-STORY-01.jpg" alt="Pride Campaign Story" loading="lazy" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-STORY-02.jpg" alt="Pride Campaign Story" loading="lazy" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px;">
+          <img src="static/Website Content/Queer Campaign/PRIDE-STORY-03.jpg" alt="Pride Campaign Story" loading="lazy" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px;">
+        </div>
+      </div>
+
+      <div class="extra-project-card reveal reveal-delay-1">
+        <p class="extra-card-num">— 02</p>
+        <h3 class="extra-card-name">'Best Of', BookMyShow's year-end campaign</h3>
+        <p class="extra-card-writeup">BookMyShow's year-end report always landed on my desk with one challenge: make it not look like a report. I led the creative direction and copy to turn a data dump into a fun read.</p>
+        <a href="https://in.bookmyshow.com/throwback/2023/" target="_blank" rel="noopener noreferrer" style="display:block; position:relative; margin-top:8px; border-radius:6px; overflow:hidden; cursor:pointer;">
+          <img src="static/Website Content/Best Of.jpeg" alt="Best Of BookMyShow" loading="lazy" style="width:100%; border-radius:6px; display:block;">
+          <div style="position:absolute; bottom:12px; right:12px; background:rgba(238,155,0,0.9); color:#001219; font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:6px 14px; border-radius:100px; display:flex; align-items:center; gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            Click here
+          </div>
+        </a>
+      </div>
+
+      <div class="extra-project-card reveal">
+        <p class="extra-card-num">— 03</p>
+        <h3 class="extra-card-name">New Year Campaign</h3>
+        <p class="extra-card-writeup">The Covid New Year, where everyone was eagerly waiting to turn a new leaf. As India's leading ticketing platform, BookMyShow's marketing team faced the dual challenge of communicating both 'exciting out-of-home experiences' and 'safety'. We created a campaign that hit a sweet spot.</p>
+        <div class="auto-slideshow" id="newyear-slideshow">
+          <div class="auto-slideshow-track">
+            <img src="static/Website Content/New Year/2021.jpeg" alt="New Year 2021" loading="lazy">
+            <img src="static/Website Content/New Year/2.jpg" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/BodyGlitter-Campaign-02.jpg" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/Screen-Shot-2020-12-23-at-1.59.15-AM.png" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/Screen-Shot-2020-12-23-at-1.59.27-AM.png" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/Screen-Shot-2020-12-23-at-2.00.19-AM.png" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/Screen-Shot-2020-12-23-at-2.07.10-AM.png" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/Screen-Shot-2020-12-23-at-2.07.25-AM.png" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/WhatsApp Image 2026-05-04 at 10.28.52 PM.jpeg" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/WhatsApp Image 2026-05-04 at 10.31.32 PM.jpeg" alt="New Year campaign" loading="lazy">
+            <img src="static/Website Content/New Year/WhatsApp Image 2026-05-04 at 10.49.05 PM.jpeg" alt="New Year campaign" loading="lazy">
+          </div>
+          <div class="auto-slideshow-dots" id="newyear-dots"></div>
+        </div>
+      </div>
+
+      <div class="extra-project-card reveal reveal-delay-1">
+        <p class="extra-card-num">— 04</p>
+        <h3 class="extra-card-name">Unscripted</h3>
+        <p class="extra-card-writeup">Worked on shaping the voice of a new IP, BookMyShow Unscripted, a talk show/podcast where the stars went beyond the script I wrote. Well, not really ;)</p>
+        <div class="extra-slideshow" style="aspect-ratio:16/9; overflow:hidden; border:none; padding:0; background:var(--ink-black);">
+          <iframe src="https://www.youtube.com/embed/1jM6AWHFqF0" title="BookMyShow Unscripted" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>
+        </div>
+      </div>
+
+      <div class="extra-project-card reveal" style="grid-column: 1 / -1;">
+        <p class="extra-card-num">— 05</p>
+        <h3 class="extra-card-name">#CinemaIsBack Campaign</h3>
+        <p class="extra-card-writeup">When theatres reopened after COVID, people were eager to return, but they were cautious about entering enclosed spaces. So we built a 6-month campaign designed to rebuild habit—using nostalgia to bring people back, and reassurance to make them stay. The campaign that brought back 76% of users to BookMyShow.</p>
+        <div class="auto-slideshow" id="cinemaisback-slideshow">
+          <div class="auto-slideshow-track">
+            <video src="static/Website Content/CinemaIsBack/CinemaIsBack .mp4" muted playsinline preload="metadata" controls style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+            <video src="static/Website Content/CinemaIsBack/1.mp4" muted playsinline preload="metadata" controls style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+            <video src="static/Website Content/CinemaIsBack/2.mp4" muted playsinline preload="metadata" controls style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+            <video src="static/Website Content/CinemaIsBack/3.mp4" muted playsinline preload="metadata" controls style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+            <img src="static/Website Content/CinemaIsBack/More.jpeg" alt="CinemaIsBack" loading="lazy">
+            <img src="static/Website Content/CinemaIsBack/More 2.jpeg" alt="CinemaIsBack" loading="lazy">
+            <img src="static/Website Content/CinemaIsBack/More 4.jpeg" alt="CinemaIsBack" loading="lazy">
+          </div>
+          <div class="auto-slideshow-dots" id="cinemaisback-dots"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="site-footer" style="margin-top:80px;">
+      <div class="footer-body">
+        <p class="footer-text">If your brand, web page, product, Instagram, studio, home, anything will thrive with this kinda Komal energy, please call — <a href="tel:+919881010419" class="footer-inline-link">+91 9881010419</a>, email at — <a href="mailto:komaldusseja@gmail.com" class="footer-inline-link">komaldusseja@gmail.com</a></p>
+        <nav class="footer-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/komal-dusseja/" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.behance.net/komaldusseja" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a2 2 0 100-4H4v12h5.5a2.5 2.5 0 000-5H4"/><path d="M14.5 7h5M15 12h4.5a2.5 2.5 0 010 5H15V9.5A2.5 2.5 0 0117.5 7"/></svg>
+          </a>
+          <span class="footer-divider">·</span>
+          <a href="https://docs.google.com/document/d/1dzXdZxXmh70G40OJR3eTo5kEY3CAUSsbNvHHDCWi67g/edit?tab=t.0#heading=h.mcjqh4mduo5l" class="footer-link" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════════ -->
+<div id="about-page" class="page">
+  <section id="about-page-content">
+    <div class="about-grid">
+      <div class="about-text">
+        <h1 class="reveal">Hi, I'm<br><em>Komal</em><br>Dusseja.</h1>
+        <p class="handwritten reveal reveal-delay-1">Writer at large, potter at small :)</p>
+        <br>
+        <p class="reveal reveal-delay-1">As you can gather, I make something out of nothing for a living.</p>
+        <p class="reveal reveal-delay-2">Mostly ideas, sentences, scripts, concepts. Sometimes, entire brand worlds. Occasionally, a dating profile bio.</p>
+        <p class="reveal reveal-delay-2">I believe stories are the most memorable strategy a brand can use to shape culture and build a community, and I've made a career out of proving that they work. From push notifications to billboards, I sneak a narrative into everything I write. Some obvious. Some hiding in plain sight.</p>
+        <p class="reveal reveal-delay-3">I anthropomorphise everything: objects, brands, fleeting thoughts.<br>
+        <span class="handwritten" style="font-size:22px;">(My house is full of things with googly eyes. They all have personalities. Some better than mine.)</span></p>
+        <p class="reveal reveal-delay-3">Somewhere between that and the BAU work, I've found I enjoy shaping the direction of ideas as much as writing them.</p>
+        <p class="reveal">By day, I conjure branded stories. By night, I wander through art galleries, books, movies, Substacks, and practice ceramics.</p>
+        <p class="reveal">If this alchemy of good literacy, a slightly bonkers imagination, and an unhealthy understanding of how humans always want more is what your brand needs, then we might just get along.</p>
+        <p class="handwritten reveal" style="margin-top:40px; font-size:22px; color:rgba(233,216,166,0.8); line-height:1.6;">
+          P.S. If you like what you see, then you must know that I've figured out a way to let Gen AI join in on the fun of making something out of nothing (the website, duh)!
+        </p>
+      </div>
+
+      <div class="about-visual reveal reveal-delay-2">
+        <div style="position:relative;">
+          <div class="about-img-area" style="border:none; background:transparent; padding:0;">
+            <img src="static/Website Content/Me.png" alt="Komal Dusseja" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" style="margin-top:80px;">
+      <div class="footer-body">
+        <p class="footer-text">If your brand, web page, product, Instagram, studio, home, anything will thrive with this kinda Komal energy, please call — <a href="tel:+919881010419" class="footer-inline-link">+91 9881010419</a>, email at — <a href="mailto:komaldusseja@gmail.com" class="footer-inline-link">komaldusseja@gmail.com</a></p>
+        <nav class="footer-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/komal-dusseja/" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.behance.net/komaldusseja" class="footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a2 2 0 100-4H4v12h5.5a2.5 2.5 0 000-5H4"/><path d="M14.5 7h5M15 12h4.5a2.5 2.5 0 010 5H15V9.5A2.5 2.5 0 0117.5 7"/></svg>
+          </a>
+          <span class="footer-divider">·</span>
+          <a href="https://docs.google.com/document/d/1dzXdZxXmh70G40OJR3eTo5kEY3CAUSsbNvHHDCWi67g/edit?tab=t.0#heading=h.mcjqh4mduo5l" class="footer-link" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+        </nav>
+      </div>
+    </footer>
+  </section>
+</div>
+
+
+<script src="main.js?v=2"></script>
+</body>
+</html>
