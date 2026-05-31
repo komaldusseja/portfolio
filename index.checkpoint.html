@@ -16,19 +16,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" id="theme-stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-<!-- Custom cursor — googly eyes -->
-<div id="cursor-eyes">
-  <div class="googly-eye" id="eye-left">
-    <div class="googly-pupil" id="pupil-left"></div>
-  </div>
-  <div class="googly-eye" id="eye-right">
-    <div class="googly-pupil" id="pupil-right"></div>
-  </div>
-</div>
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
 <div id="cursor-thought"></div>
 
 <!-- Time-based greeting -->
@@ -50,12 +44,6 @@
       <a href="https://www.behance.net/komaldusseja" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Behance">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a2 2 0 100-4H4v12h5.5a2.5 2.5 0 000-5H4"/><path d="M14.5 7h5M15 12h4.5a2.5 2.5 0 010 5H15V9.5A2.5 2.5 0 0117.5 7"/></svg>
       </a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Switch theme" onclick="toggleTheme()">
-        <span class="theme-toggle-label" id="theme-label">Cinematic</span>
-        <span class="theme-toggle-track">
-          <span class="theme-toggle-thumb"></span>
-        </span>
-      </button>
     </li>
   </ul>
 </nav>
@@ -263,9 +251,9 @@
   <div class="project-awards reveal">
     <h3 class="section-title">Awards</h3>
     <div class="awards-grid">
-      <img src="static/Website Content/BestSeller Seats/Awards 2/1.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.9);">
-      <img src="static/Website Content/BestSeller Seats/Awards 2/2.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.9);">
-      <img src="static/Website Content/BestSeller Seats/Awards 2/3.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.9);">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/1.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/2.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
+      <img src="static/Website Content/BestSeller Seats/Awards 2/3.png" alt="Award" loading="lazy" style="max-height:200px; max-width:320px; object-fit:contain;">
     </div>
   </div>
 
@@ -806,7 +794,7 @@
   <section id="about-page-content">
     <div class="about-grid">
       <div class="about-text">
-        <h1 class="reveal">Hi, I'm<br><em>Komal</em><br>Dusseja.</h1>
+        <h1 class="reveal">Hi; I'm<br><em>Komal</em><br>Dusseja.</h1>
         <p class="handwritten reveal reveal-delay-1">Writer at large, potter at small :)</p>
         <br>
         <p class="reveal reveal-delay-1">As you can gather, I make something out of nothing for a living.</p>

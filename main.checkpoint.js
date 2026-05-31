@@ -1,40 +1,4 @@
 
-// ── THEME TOGGLE (Cinematic / Chaotic)
-const CINEMATIC_CSS = 'style.css?v=4';
-const CHAOTIC_CSS   = 'style-experiment.css?v=16';
-
-function toggleTheme() {
-  const sheet = document.getElementById('theme-stylesheet');
-  const label = document.getElementById('theme-label');
-  const isChaotic = document.body.classList.contains('chaotic');
-
-  if (isChaotic) {
-    // Switch to Cinematic
-    sheet.href = CINEMATIC_CSS;
-    document.body.classList.remove('chaotic');
-    label.textContent = 'Cinematic';
-    localStorage.setItem('theme', 'cinematic');
-  } else {
-    // Switch to Chaotic
-    sheet.href = CHAOTIC_CSS;
-    document.body.classList.add('chaotic');
-    label.textContent = 'Chaotic';
-    localStorage.setItem('theme', 'chaotic');
-  }
-}
-
-// Apply saved theme on load
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'chaotic') {
-    const sheet = document.getElementById('theme-stylesheet');
-    const label = document.getElementById('theme-label');
-    if (sheet) sheet.href = CHAOTIC_CSS;
-    if (label) label.textContent = 'Chaotic';
-    document.body.classList.add('chaotic');
-  }
-})();
-
 // ── RABBIT HOLE
 // Add more links here as needed (space kept for 5–6 more)
 const rabbitHoleLinks = [
@@ -66,13 +30,11 @@ function goRabbitHole() {
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-// ── GOOGLY EYES CURSOR
-const eyes = document.getElementById('cursor-eyes');
-const pupilLeft = document.getElementById('pupil-left');
-const pupilRight = document.getElementById('pupil-right');
+// ── CURSOR
+const cursor = document.getElementById('cursor');
+const trail = document.getElementById('cursor-trail');
 const thought = document.getElementById('cursor-thought');
 let mouseX = 0, mouseY = 0;
-let prevX = 0, prevY = 0;
 
 const thoughts = [
   "Yes, but weirder, human",
@@ -100,33 +62,17 @@ const thoughts = [
 
 let currentThought = '';
 
-function movePupil(pupil, eyeEl, mx, my) {
-  const rect = eyeEl.getBoundingClientRect();
-  const cx = rect.left + rect.width / 2;
-  const cy = rect.top + rect.height / 2;
-  const dx = mx - cx;
-  const dy = my - cy;
-  const angle = Math.atan2(dy, dx);
-  const maxDist = 5;
-  const px = Math.cos(angle) * maxDist;
-  const py = Math.sin(angle) * maxDist;
-  pupil.style.transform = `translate(${px}px, ${py}px)`;
-}
-
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX;
   mouseY = e.clientY;
-
-  eyes.style.left = mouseX + 'px';
-  eyes.style.top = mouseY + 'px';
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+  setTimeout(() => {
+    trail.style.left = mouseX + 'px';
+    trail.style.top = mouseY + 'px';
+  }, 80);
   thought.style.left = mouseX + 'px';
   thought.style.top = mouseY + 'px';
-
-  movePupil(pupilLeft, document.getElementById('eye-left'), mouseX, mouseY);
-  movePupil(pupilRight, document.getElementById('eye-right'), mouseX, mouseY);
-
-  prevX = mouseX;
-  prevY = mouseY;
 });
 
 function setRandomThought() {
