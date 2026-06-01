@@ -1,7 +1,115 @@
 
+// ── MOBILE NAV HAMBURGER
+function toggleMobileNav() {
+  const nav = document.getElementById('nav-links');
+  const btn = document.getElementById('nav-hamburger');
+  if (!nav || !btn) return;
+
+  const isOpen = nav.classList.toggle('mobile-open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', String(isOpen));
+  document.body.classList.toggle('mobile-nav-open', isOpen);
+}
+
+// Close mobile nav when a link is clicked
+document.querySelectorAll('#nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('nav-hamburger');
+    if (nav) nav.classList.remove('mobile-open');
+    if (btn) {
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.classList.remove('mobile-nav-open');
+  });
+});
+
+// ── SWIPE SUPPORT FOR SLIDESHOWS
+function addSwipeSupport(slideshowId) {
+  const el = document.getElementById(slideshowId);
+  if (!el) return;
+  let startX = 0;
+  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  el.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      // Find the controls wrapper and click prev/next
+      const controls = el.nextElementSibling;
+      if (!controls) return;
+      const btns = controls.querySelectorAll('.slideshow-btn');
+      if (diff > 0 && btns[1]) btns[1].click(); // swipe left = next
+      else if (btns[0]) btns[0].click();          // swipe right = prev
+    }
+  }, { passive: true });
+}
+
+// Init swipe on all slideshows
+['giftcards-slideshow','stream-video-slideshow','stream-img-slideshow',
+ 'newyear-slideshow','bestseller-pn-slideshow','bestseller-insta-slideshow',
+ 'cinemaisback-slideshow','redlorry-festival-slideshow','redlorry-merch-slideshow'
+].forEach(addSwipeSupport);
+
+// ── TOUCH DEVICE — hide googly eyes cursor, restore cursor, add tap googly eyes
+if ('ontouchstart' in window) {
+  const eyes = document.getElementById('cursor-eyes');
+  if (eyes) eyes.style.display = 'none';
+  document.body.style.cursor = 'auto';
+
+  // Floating googly eyes on tap
+  document.addEventListener('touchstart', e => {
+    const touch = e.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+
+    const container = document.createElement('div');
+    container.style.cssText = `
+      position: fixed;
+      left: ${x}px;
+      top: ${y}px;
+      display: flex;
+      gap: 4px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      animation: tapEyeFloat 1.2s ease-out forwards;
+    `;
+
+    for (let i = 0; i < 2; i++) {
+      const eye = document.createElement('div');
+      eye.style.cssText = `
+        width: 20px; height: 20px;
+        background: #fff;
+        border-radius: 50%;
+        border: 2px solid #222;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        position: relative;
+      `;
+      const pupil = document.createElement('div');
+      // Random pupil direction
+      const angle = Math.random() * Math.PI * 2;
+      const px = Math.cos(angle) * 4;
+      const py = Math.sin(angle) * 4;
+      pupil.style.cssText = `
+        width: 8px; height: 8px;
+        background: #111;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(${px}px, ${py}px);
+      `;
+      eye.appendChild(pupil);
+      container.appendChild(eye);
+    }
+
+    document.body.appendChild(container);
+    setTimeout(() => container.remove(), 1200);
+  }, { passive: true });
+}
+
 // ── THEME TOGGLE (Cinematic / Chaotic)
-const CINEMATIC_CSS = 'style.css?v=4';
-const CHAOTIC_CSS   = 'style-experiment.css?v=16';
+const CINEMATIC_CSS = 'style.css?v=10';
+const CHAOTIC_CSS   = 'style-experiment.css?v=18';
 
 function toggleTheme() {
   const sheet = document.getElementById('theme-stylesheet');
@@ -166,19 +274,21 @@ setTimeout(setGreeting, 800);
 // ── PAGE ROUTING
 function setActiveNav(name) {
   const navMap = {
-    gallery: 'gallery',
-    extra: 'extra',
-    about: 'about',
-    bestseller: 'gallery',
-    santa: 'gallery',
-    bytescripts: 'gallery',
-    stream: 'gallery',
-    giftcards: 'gallery',
-    redlorry: 'gallery',
+    gallery: 'gallery', extra: 'extra', about: 'about',
+    bestseller: 'gallery', santa: 'gallery', bytescripts: 'gallery',
+    stream: 'gallery', giftcards: 'gallery', redlorry: 'gallery',
   };
   const current = navMap[name] || 'gallery';
+  // Check if mobile nav is in use (hamburger visible = mobile mode)
+  const hamburger = document.getElementById('nav-hamburger');
+  const isMobile = hamburger && window.getComputedStyle(hamburger).display !== 'none';
+
   document.querySelectorAll('.nav-links li[data-page]').forEach(li => {
-    li.style.display = (li.dataset.page === current) ? 'none' : '';
+    if (isMobile) {
+      li.style.display = '';  // show all links in mobile menu
+    } else {
+      li.style.display = (li.dataset.page === current) ? 'none' : '';
+    }
   });
 }
 
@@ -364,3 +474,4 @@ initReveal();
 initSlideshowsOnPage();
 setActiveNav('gallery');
 window.addEventListener('scroll', initReveal, { passive: true });
+window.addEventListener('resize', () => setActiveNav('gallery'), { passive: true });

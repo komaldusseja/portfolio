@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" id="theme-stylesheet" href="style.css?v=4">
+<link rel="stylesheet" id="theme-stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
 <!-- Navigation -->
 <nav>
   <a href="#" class="nav-logo" onclick="showPage('gallery'); return false;">KD.</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li data-page="gallery"><a href="#" onclick="showPage('gallery'); return false;">Work Work Work</a></li>
     <li data-page="extra"><a href="#" onclick="showPage('extra'); return false;">More Work Work Work</a></li>
     <li data-page="about"><a href="#" onclick="showPage('about'); return false;">Me</a></li>
@@ -58,6 +58,9 @@
       </button>
     </li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-controls="nav-links" aria-expanded="false" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ═══════════════════════════════════════
@@ -806,7 +809,7 @@
   <section id="about-page-content">
     <div class="about-grid">
       <div class="about-text">
-        <h1 class="reveal">Hi, I'm<br><em>Komal</em><br>Dusseja.</h1>
+        <h1 class="reveal">Hi; I'm<br><em>Komal</em><br>Dusseja.</h1>
         <p class="handwritten reveal reveal-delay-1">Writer at large, potter at small :)</p>
         <br>
         <p class="reveal reveal-delay-1">As you can gather, I make something out of nothing for a living.</p>
@@ -850,6 +853,6 @@
 </div>
 
 
-<script src="main.js?v=2"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>
