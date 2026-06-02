@@ -108,8 +108,8 @@ if ('ontouchstart' in window) {
 }
 
 // ── THEME TOGGLE (Cinematic / Chaotic)
-const CINEMATIC_CSS = 'style.css?v=10';
-const CHAOTIC_CSS   = 'style-experiment.css?v=18';
+const CINEMATIC_CSS = 'style.css?bust=20260602';
+const CHAOTIC_CSS   = 'style-experiment.css?bust=20260602';
 
 function toggleTheme() {
   const sheet = document.getElementById('theme-stylesheet');

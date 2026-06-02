@@ -1419,7 +1419,7 @@ body::before {
 /* ══════════════════════════════════════════
    RESPONSIVE — MOBILE (≤480px)
 ══════════════════════════════════════════ */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   body > nav { padding: 14px 16px; }
   .nav-links {
     display: none;
