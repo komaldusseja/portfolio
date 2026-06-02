@@ -1356,6 +1356,10 @@ body > nav {
   font-family: 'Satoshi', system-ui, sans-serif;
   font-weight: 800;
 }
+/* Make the comma clearly a comma, not a semicolon */
+#about-page .about-text h1::first-line {
+  letter-spacing: 2px;
+}
 .site-footnote {
   padding: 16px 40px 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
